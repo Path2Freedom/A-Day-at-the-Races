@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="A_Day_at_the_Races.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:A_Day_at_the_Races"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFA3A6A7" Width="650">              
+                
+        <Image Name="racetrackPictureBox"
+               Source="Assets\racetrack.png" 
+               Stretch="None"                
+               VerticalAlignment="Top" 
+               Margin="0,30,30,0"/>
+
+        <Grid VerticalAlignment="Top" Margin="0,30,30,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Name="Dog1"
+                   Source="Assets\dog.png" 
+                   Stretch="None" 
+                   Grid.Row="0" 
+                   HorizontalAlignment="Left" 
+                   Margin="10,0,0,0"/>
+            <Image Name="Dog2"
+                   Source="Assets\dog.png" 
+                   Stretch="None" 
+                   Grid.Row="1" 
+                   HorizontalAlignment="Left" 
+                   Margin="10,0,0,0"/>
+            <Image Name="Dog3"
+                   Source="Assets\dog.png" 
+                   Stretch="None" 
+                   Grid.Row="2" 
+                   HorizontalAlignment="Left" 
+                   Margin="10,0,0,0"/>
+            <Image Name="Dog4"
+                   Source="Assets\dog.png" 
+                   Stretch="None" 
+                   Grid.Row="3" 
+                   HorizontalAlignment="Left" 
+                   Margin="10,0,0,0"/>
+
+            <Grid Grid.Row="4" Margin="10,40,10,0" BorderBrush="LightGray" BorderThickness="1,1,1,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>                   
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="Betting Parlor" Margin="10"/>
+                    <TextBlock Text="Minimum bet: 5 bucks" FontWeight="Black" FontSize="18" Margin="5,10,10,0"/>
+                    <RadioButton Name="joeRadioButton" Content="Joe has 50 bucks" GroupName="radioButtonGroup" Tapped="joeRadioButton_Tapped" IsChecked="True" Margin="5,0,0,0"/>
+                    <RadioButton Name="bobRadioButton" Content="Bob has 75 bucks" GroupName="radioButtonGroup" Tapped="bobRadioButton_Tapped" Margin="5,0,0,0"/>
+                    <RadioButton Name="alRadioButton" Content="Al has 45 bucks" GroupName="radioButtonGroup" Tapped="alRadioButton_Tapped" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Bet" FontWeight="Black" FontSize="18" Margin="5,50,10,0"/>
+                    <TextBlock Name="joeBetLabel" Text="Joe hasn't placed a bet" Margin="5"/>
+                    <TextBlock Name="bobBetLabel" Text="Bob hasn't placed a bet" Margin="5"/>
+                    <TextBlock Name="alBetLabel" Text="Al hasn't placed a bet" Margin="5"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="10,0,10,10" BorderBrush="LightGray" BorderThickness="1,0,1,1">
+                <TextBlock Name="myName" Text="Joe" Margin="15,15,5,15"/>
+                <Button Name="betButton" Content="Bets" Click="betButton_Click" Margin="10"/>
+                <ComboBox Name="betAmount" 
+                          Margin="10">
+                    <ComboBoxItem Content="5" IsSelected="True"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="13"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="15"/>
+                </ComboBox>
+                <TextBlock Text="bucks on dog number" Margin="10,15,10,10"/>
+                <ComboBox Name="dogSelection" 
+                          Margin="10">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2"/> 
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                </ComboBox>
+
+                <Button Name="RaceButton" 
+                        Content="Race!" 
+                        Click="RaceButton_Click" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        Margin="20,10,10,10"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Margin="0,30,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Name="winnerTextBlock"                        
+                           FontSize="20" 
+                           FontWeight="Bold"                           
+                           Margin="0,0,20,0"/>
+                <Button Name="okButton" Content="Ok" Click="okButton_Click" Visibility="Collapsed"/>
+            </StackPanel>            
+        </Grid>
+    </Grid>
+</Page>
